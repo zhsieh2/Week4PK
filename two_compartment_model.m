@@ -9,7 +9,8 @@ function two_compartment_model()
     initial_conditions = [1000 0 0];  % Initial drug amounts in central, peripheral, and eliminated compartments (ng)
 
     % Solve the differential equations using ode45
-    [t, drug_amounts] = ode45(@(t, y) ode_equations(t, y, V1, V2, CL), tspan, initial_conditions);
+    [t, drug_amounts] = ode45(@(t, y) ode_equations(y, V1, V2, CL), tspan, initial_conditions);
+    % y is the concentration, CL is the clearance
 
     % Plot drug amounts in the central and peripheral compartments
     figure;
@@ -20,7 +21,7 @@ function two_compartment_model()
     title('Drug Amount vs. Time (Two-Compartment Model)');
 end
 
-function dydt = ode_equations(t, y, V1, V2, CL)
+function dydt = ode_equations(y, V1, V2, CL)
     % Differential equations for the two-compartment model
     C1 = y(1) / V1;  % Concentration in the central compartment (ng/mL)
     C2 = y(2) / V2;  % Concentration in the peripheral compartment (ng/mL)
