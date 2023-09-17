@@ -1,8 +1,10 @@
-function two_compartment_model()
+function plasma_protein_binding()
     % Parameters for the two-compartment model
-    V1 = 100;  % Volume of distribution in central compartment (mL)
-    V2 = 200;  % Volume of distribution in peripheral compartment (mL)
+    V1 = 10;  % Volume of distribution in central compartment (mL)
+    V2 = 200;  % Volume of distribution in peripheral (mL)
+    V3 = 100; % Volume of distribtion in the plasma proteins (mL)
     CL = 10;   % Clearance (mL/min)
+    % rate of unloading from plasma proteins is proportional to clearance
 
     % Simulation parameters
     tspan = [0 60];  % Simulation time (minutes)
