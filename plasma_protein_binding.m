@@ -1,7 +1,7 @@
 function plasma_protein_binding()
     % Parameters for the two-compartment model
-    V1 = 10;  % Volume of distribution in central compartment (mL)
-    V2 = 200;  % Volume of distribution in peripheral (mL)
+    V1 = 50;  % Volume of unbound distribution in central compartment (mL)
+    V2 = 200;  % Volume of bound distribution in plasma proteins (mL)
     CL = 10;   % Clearance (mL/min)
     % rate of unloading from plasma proteins is proportional to clearance
 
