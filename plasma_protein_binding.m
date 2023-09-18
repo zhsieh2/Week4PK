@@ -2,7 +2,6 @@ function plasma_protein_binding()
     % Parameters for the two-compartment model
     V1 = 10;  % Volume of distribution in central compartment (mL)
     V2 = 200;  % Volume of distribution in peripheral (mL)
-    V3 = 100; % Volume of distribtion in the plasma proteins (mL)
     CL = 10;   % Clearance (mL/min)
     % rate of unloading from plasma proteins is proportional to clearance
 
@@ -28,7 +27,7 @@ function dydt = ode_equations(y, V1, V2, CL)
     C1 = y(1) / V1;  % Concentration in the central compartment (ng/mL)
     C2 = y(2) / V2;  % Concentration in the peripheral compartment (ng/mL)
 
-    % Rate of change of drug amounts in each compartment
+    % Rate of change of drug amounts in each compartment, y is a 3x1 vector
     dydt = [-CL * C1;  % Rate of change in the central compartment
             CL * C1 - CL * C2;  % Rate of change in the peripheral compartment
             CL * C2];  % Rate of change in the eliminated compartment
